@@ -17,6 +17,7 @@ use edenspiekermann\craftjwt\models\Settings;
 use Craft;
 use craft\base\Plugin;
 use craft\web\Application;
+
 use Firebase\JWT\JWT;
 
 use yii\base\Event;
@@ -60,17 +61,18 @@ class CraftJwt extends Plugin
         self::$plugin = $this;
 
         Craft::$app->on(Application::EVENT_INIT, function (Event $event) {
-            $headers = Craft::$app->request->headers;
-            Craft::dd($headers);
             $secretKey = self::$plugin->getSettings()->secretKey;
             $jwt = Craft::$app->request->getQueryParam('jwt');
+            // TODO: Get JWT from Auth headers instead of query string
+            // $headers = Craft::$app->request->headers;
+            // Craft::dd($headers);
 
+            // TODO: Check if it actually encodes successfully
             if ($secretKey && $jwt) {
                 $value = JWT::decode($jwt, $secretKey, ['HS256']);
+                // TODO: Login by some other unique parameter that is not an ID
                 Craft::$app->user->loginByUserId($value->id);
             }
-
-            // Craft::dd($value);
         });
 
         Craft::info(
