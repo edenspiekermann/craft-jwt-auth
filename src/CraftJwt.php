@@ -16,10 +16,8 @@ use edenspiekermann\craftjwt\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
-use craft\services\Plugins;
-use craft\events\PluginEvent;
-use craft\web\UrlManager;
-use craft\events\RegisterUrlRulesEvent;
+use craft\web\Application;
+use Firebase\JWT\JWT;
 
 use yii\base\Event;
 
@@ -61,29 +59,19 @@ class CraftJwt extends Plugin
         parent::init();
         self::$plugin = $this;
 
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'craft-jwt/j-w-t';
-            }
-        );
+        Craft::$app->on(Application::EVENT_INIT, function (Event $event) {
+            $headers = Craft::$app->request->headers;
+            Craft::dd($headers);
+            $secretKey = self::$plugin->getSettings()->secretKey;
+            $jwt = Craft::$app->request->getQueryParam('jwt');
 
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_CP_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['cpActionTrigger1'] = 'craft-jwt/j-w-t/do-something';
+            if ($secretKey && $jwt) {
+                $value = JWT::decode($jwt, $secretKey, ['HS256']);
+                Craft::$app->user->loginByUserId($value->id);
             }
-        );
 
-        Event::on(
-            Plugins::class,
-            Plugins::EVENT_AFTER_INSTALL_PLUGIN,
-            function (PluginEvent $event) {
-                if ($event->plugin === $this) { }
-            }
-        );
+            // Craft::dd($value);
+        });
 
         Craft::info(
             Craft::t(
