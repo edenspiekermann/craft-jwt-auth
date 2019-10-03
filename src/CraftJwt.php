@@ -62,16 +62,16 @@ class CraftJwt extends Plugin
 
         Craft::$app->on(Application::EVENT_INIT, function (Event $event) {
             $secretKey = self::$plugin->getSettings()->secretKey;
-            $jwt = Craft::$app->request->getQueryParam('jwt');
             // TODO: Get JWT from Auth headers instead of query string
             // $headers = Craft::$app->request->headers;
             // Craft::dd($headers);
+            $jwt = Craft::$app->request->getQueryParam('jwt');
 
             // TODO: Check if it actually encodes successfully
-            if ($secretKey && $jwt) {
-                $value = JWT::decode($jwt, $secretKey, ['HS256']);
+            $decode = JWT::decode($jwt, $secretKey, ['HS256']);
+            if ($decode) {
                 // TODO: Login by some other unique parameter that is not an ID
-                Craft::$app->user->loginByUserId($value->id);
+                Craft::$app->user->loginByUserId($decode->id);
             }
         });
 
