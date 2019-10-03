@@ -1,0 +1,44 @@
+{
+  "name": "edenspiekermann/craft-jwt",
+  "description": "Enable authentication to Craft through the use of Javascript Web Tokens (JWT)",
+  "type": "craft-plugin",
+  "version": "1.0.0",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "craft jwt"
+  ],
+  "support": {
+    "docs": "https://edenspiekermann.com",
+    "issues": "https://edenspiekermann.com"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mike Pierce",
+      "homepage": "https://edenspiekermann.com"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "^3.0.0-RC1",
+    "web-token/jwt-framework": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "edenspiekermann\\craftjwt\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "Craft JWT",
+    "handle": "craft-jwt",
+    "hasCpSettings": true,
+    "hasCpSection": false,
+    "changelogUrl": "???",
+    "components": {
+      "jWT": "edenspiekermann\\craftjwt\\services\\JWT"
+    },
+    "class": "edenspiekermann\\craftjwt\\CraftJwt"
+  }
+}

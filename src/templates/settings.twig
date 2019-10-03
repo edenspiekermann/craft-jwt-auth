@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Craft JWT plugin for Craft CMS 3.x
+ *
+ * Craft JWT Settings.twig
+ *
+ * @author    Mike Pierce
+ * @copyright Copyright (c) 2019 Mike Pierce
+ * @link      https://edenspiekermann.com
+ * @package   CraftJwt
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("edenspiekermann\\craftjwt\\assetbundles\\craftjwt\\CraftJwtAsset") %}
+
+{{ forms.textField({
+    label: 'AUTH0_AUDIENCE',
+    instructions: 'Enter ',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}
