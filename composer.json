@@ -11,13 +11,17 @@
     "craft jwt"
   ],
   "support": {
-    "docs": "https://edenspiekermann.com",
-    "issues": "https://edenspiekermann.com"
+    "docs": "https://github.com/edenspiekermann/craft-jwt",
+    "issues": "https://github.com/edenspiekermann/craft-jwt/issues"
   },
   "license": "MIT",
   "authors": [
     {
       "name": "Mike Pierce",
+      "homepage": "https://michaelpierce.trade"
+    },
+    {
+      "name": "Edenspiekermann",
       "homepage": "https://edenspiekermann.com"
     }
   ],
