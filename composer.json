@@ -2,7 +2,7 @@
   "name": "edenspiekermann/craft-jwt",
   "description": "Enable authentication to Craft through the use of JSON Web Tokens (JWT)",
   "type": "craft-plugin",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "keywords": [
     "craft",
     "cms",
