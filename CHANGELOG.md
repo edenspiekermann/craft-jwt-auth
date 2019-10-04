@@ -9,3 +9,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 
 - Initial release
+- Validate incoming requests with a JWT present in the Authentication headers.
+- Match a validated JWT to a user account in Craft CMS and login as that user.
+- Optionally create a new account if no existing account can be found.
