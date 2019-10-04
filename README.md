@@ -1,4 +1,4 @@
-# Craft JWT plugin
+# Craft JWT Auth plugin
 
 Enable authentication to Craft through the use of [JSON Web Tokens](https://jwt.io/) (JWT).
 
@@ -18,11 +18,11 @@ To install the plugin, follow these instructions.
 
 2.  Then tell Composer to load the plugin:
 
-    composer require edenspiekermann/craft-jwt
+    composer require edenspiekermann/craft-jwt-auth
 
-3.  In the Control Panel, go to Settings → Plugins and click the “Install” button for Craft JWT.
+3.  In the Control Panel, go to Settings → Plugins and click the “Install” button for Craft JWT Auth.
 
-## Craft JWT Overview
+## Craft JWT Auth Overview
 
 From the [official website](https://jwt.io/):
 
@@ -30,7 +30,7 @@ From the [official website](https://jwt.io/):
 
 This plugin enables requests to Craft to be securely authenticated in the presence of a JWT that can be successfully verified as matching a secret key generated signature.
 
-## Configuring Craft JWT
+## Configuring Craft JWT Auth
 
 Once installed, naviate to the settings page of the plugin and enter required settings to activate the plugin:
 
@@ -39,7 +39,7 @@ Once installed, naviate to the settings page of the plugin and enter required se
 | `Secret key`       | Mandatory. Secret key used to sign outgoing and verify incoming JWTs.                       |
 | `Auto create user` | Optional. Activate to enable auto-creation of a public user when provided a verifiable JWT. |
 
-## Using Craft JWT
+## Using Craft JWT Auth
 
 The plugin will attempt to verify any incoming requests with a JWT present in the `Authentication` header with a `Bearer` prefix, or with the simpler `X-Access-Token` header value. An example:
 
@@ -57,7 +57,7 @@ If a provided token can be verified AND can be match to a user account with a us
 
 If the token is verifiable but a matching user account does NOT exist, but the `Auto create user` setting is enabled AND public registration is enabled in the Craft settings, a new user account will be created on-the-fly and the new user then logged in.
 
-## Craft JWT Roadmap
+## Craft JWT Auth Roadmap
 
 The plugin does or will offer the following features:
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Craft JWT plugin for Craft CMS 3.x
+ * Craft JWT Auth plugin for Craft CMS 3.x
  *
  * Enable authentication to Craft through the use of JSON Web Tokens (JWT)
  *
@@ -9,10 +9,10 @@
  * @copyright Copyright (c) 2019 Mike Pierce
  */
 
-namespace edenspiekermann\craftjwt;
+namespace edenspiekermann\craftjwtauth;
 
-use edenspiekermann\craftjwt\services\JWT as JWTService;
-use edenspiekermann\craftjwt\models\Settings;
+use edenspiekermann\craftjwtauth\services\JWT as JWTService;
+use edenspiekermann\craftjwtauth\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -25,21 +25,21 @@ use Lcobucci\JWT\Signer\Hmac\Sha256;
 use yii\base\Event;
 
 /**
- * Class CraftJwt
+ * Class CraftJwtAuth
  *
  * @author    Mike Pierce
- * @package   CraftJwt
+ * @package   CraftJwtAuth
  * @since     0.1.0
  *
  * @property  JWTService $jWT
  */
-class CraftJwt extends Plugin
+class CraftJwtAuth extends Plugin
 {
     // Static Properties
     // =========================================================================
 
     /**
-     * @var CraftJwt
+     * @var CraftJwtAuth
      */
     public static $plugin;
 
@@ -75,6 +75,7 @@ class CraftJwt extends Plugin
             if (StringHelper::startsWith($accessToken, 'Bearer ')) {
                 $accessToken = StringHelper::substr($accessToken, 7);
             }
+
 
             // If we find one, and it looks like a JWT...
             if ($accessToken && count(explode('.', $accessToken)) === 3) {
@@ -137,24 +138,20 @@ class CraftJwt extends Plugin
 
                             // Switch our unfound user to our newly created user
                             $user = $newUser;
-                        } else {
-                            return;
                         }
-                    } else {
-                        return;
                     }
 
                     // Attempt to login as the user we have found or created
-                    Craft::$app->user->loginByUserId($user->id);
+                    if ($user->id) {
+                        Craft::$app->user->loginByUserId($user->id);
+                    }
                 }
             }
-
-            return;
         });
 
         Craft::info(
             Craft::t(
-                'craft-jwt',
+                'craft-jwt-auth',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
@@ -179,7 +176,7 @@ class CraftJwt extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'craft-jwt/settings',
+            'craft-jwt-auth/settings',
             [
                 'settings' => $this->getSettings()
             ]
