@@ -17,10 +17,18 @@
 
 {% do view.registerAssetBundle("edenspiekermann\\craftjwt\\assetbundles\\craftjwt\\CraftJwtAsset") %}
 
-{{ forms.textField({
-    label: 'SECRET_KEY',
-    instructions: 'Enter your secret key for JWT token encoding and decoding',
+{{ forms.autosuggestField({
+    label: 'Secret Key',
+    instructions: 'Enter your secret key for JWT token signing and verifying',
     id: 'secretKey',
     name: 'secretKey',
-    value: settings['secretKey']})
+    value: settings['secretKey'] is defined? settings['secretKey'] : ''})
+}}
+
+{{ forms.lightswitchField({
+    label: 'Auto create user',
+    instructions: 'If enabled, will automatically create a public user when provided with a verified JWT.',
+    id: 'autoCreateUser',
+    name: 'autoCreateUser',
+    on: settings['autoCreateUser'] is defined? settings['autoCreateUser'] : false})
 }}
