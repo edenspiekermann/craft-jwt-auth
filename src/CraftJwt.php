@@ -16,10 +16,9 @@ use edenspiekermann\craftjwt\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
-use craft\services\Plugins;
-use craft\events\PluginEvent;
-use craft\web\UrlManager;
-use craft\events\RegisterUrlRulesEvent;
+use craft\web\Application;
+
+use Firebase\JWT\JWT;
 
 use yii\base\Event;
 
@@ -61,29 +60,20 @@ class CraftJwt extends Plugin
         parent::init();
         self::$plugin = $this;
 
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'craft-jwt/j-w-t';
-            }
-        );
+        Craft::$app->on(Application::EVENT_INIT, function (Event $event) {
+            $secretKey = self::$plugin->getSettings()->secretKey;
+            // TODO: Get JWT from Auth headers instead of query string
+            // $headers = Craft::$app->request->headers;
+            // Craft::dd($headers);
+            $jwt = Craft::$app->request->getQueryParam('jwt');
 
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_CP_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['cpActionTrigger1'] = 'craft-jwt/j-w-t/do-something';
+            // TODO: Check if it actually encodes successfully
+            $decode = JWT::decode($jwt, $secretKey, ['HS256']);
+            if ($decode) {
+                // TODO: Login by some other unique parameter that is not an ID
+                Craft::$app->user->loginByUserId($decode->id);
             }
-        );
-
-        Event::on(
-            Plugins::class,
-            Plugins::EVENT_AFTER_INSTALL_PLUGIN,
-            function (PluginEvent $event) {
-                if ($event->plugin === $this) { }
-            }
-        );
+        });
 
         Craft::info(
             Craft::t(
