@@ -35,7 +35,7 @@
     "handle": "craft-jwt",
     "hasCpSettings": true,
     "hasCpSection": false,
-    "changelogUrl": "???",
+    "changelogUrl": "https://raw.githubusercontent.com/edenspiekermann/craft-jwt/master/CHANGELOG.md",
     "components": {
       "jWT": "edenspiekermann\\craftjwt\\services\\JWT"
     },
