@@ -1,5 +1,5 @@
 {
-  "name": "edenspiekermann/craft-jwt",
+  "name": "edenspiekermann/craft-jwt-auth",
   "description": "Enable authentication to Craft through the use of JSON Web Tokens (JWT)",
   "type": "craft-plugin",
   "version": "0.1.0",
@@ -11,8 +11,8 @@
     "craft jwt"
   ],
   "support": {
-    "docs": "https://github.com/edenspiekermann/craft-jwt",
-    "issues": "https://github.com/edenspiekermann/craft-jwt/issues"
+    "docs": "https://github.com/edenspiekermann/craft-jwt-auth",
+    "issues": "https://github.com/edenspiekermann/craft-jwt-auth/issues"
   },
   "license": "MIT",
   "authors": [
@@ -31,18 +31,18 @@
   },
   "autoload": {
     "psr-4": {
-      "edenspiekermann\\craftjwt\\": "src/"
+      "edenspiekermann\\craftjwtauth\\": "src/"
     }
   },
   "extra": {
-    "name": "Craft JWT",
-    "handle": "craft-jwt",
+    "name": "Craft JWT Auth",
+    "handle": "craft-jwt-auth",
     "hasCpSettings": true,
     "hasCpSection": false,
-    "changelogUrl": "https://raw.githubusercontent.com/edenspiekermann/craft-jwt/master/CHANGELOG.md",
+    "changelogUrl": "https://raw.githubusercontent.com/edenspiekermann/craft-jwt-auth/master/CHANGELOG.md",
     "components": {
-      "jWT": "edenspiekermann\\craftjwt\\services\\JWT"
+      "jWT": "edenspiekermann\\craftjwtauth\\services\\JWT"
     },
-    "class": "edenspiekermann\\craftjwt\\CraftJwt"
+    "class": "edenspiekermann\\craftjwtauth\\CraftJwtAuth"
   }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Craft JWT plugin for Craft CMS 3.x
+ * Craft JWT Auth plugin for Craft CMS 3.x
  *
  * Enable authentication to Craft through the use of JSON Web Tokens (JWT)
  *
@@ -9,10 +9,10 @@
  * @copyright Copyright (c) 2019 Mike Pierce
  */
 
-namespace edenspiekermann\craftjwt;
+namespace edenspiekermann\craftjwtauth;
 
-use edenspiekermann\craftjwt\services\JWT as JWTService;
-use edenspiekermann\craftjwt\models\Settings;
+use edenspiekermann\craftjwtauth\services\JWT as JWTService;
+use edenspiekermann\craftjwtauth\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -25,21 +25,21 @@ use Lcobucci\JWT\Signer\Hmac\Sha256;
 use yii\base\Event;
 
 /**
- * Class CraftJwt
+ * Class CraftJwtAuth
  *
  * @author    Mike Pierce
- * @package   CraftJwt
+ * @package   CraftJwtAuth
  * @since     0.1.0
  *
  * @property  JWTService $jWT
  */
-class CraftJwt extends Plugin
+class CraftJwtAuth extends Plugin
 {
     // Static Properties
     // =========================================================================
 
     /**
-     * @var CraftJwt
+     * @var CraftJwtAuth
      */
     public static $plugin;
 
@@ -154,7 +154,7 @@ class CraftJwt extends Plugin
 
         Craft::info(
             Craft::t(
-                'craft-jwt',
+                'craft-jwt-auth',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
@@ -179,7 +179,7 @@ class CraftJwt extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'craft-jwt/settings',
+            'craft-jwt-auth/settings',
             [
                 'settings' => $this->getSettings()
             ]

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Craft JWT plugin for Craft CMS 3.x
+ * Craft JWT Auth plugin for Craft CMS 3.x
  *
  * Enable authentication to Craft through the use of JSON Web Tokens (JWT)
  *
@@ -11,9 +11,9 @@
 
 /**
  * @author    Mike Pierce
- * @package   CraftJwt
+ * @package   CraftJwtAuth
  * @since     0.1.0
  */
 return [
-    'Craft JWT plugin loaded' => 'Craft JWT plugin loaded',
+    'Craft JWT Auth plugin loaded' => 'Craft JWT Auth plugin loaded',
 ];

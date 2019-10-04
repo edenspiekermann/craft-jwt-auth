@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Craft JWT plugin for Craft CMS 3.x
+ * Craft JWT Auth plugin for Craft CMS 3.x
  *
  * Enable authentication to Craft through the use of JSON Web Tokens (JWT)
  *
@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2019 Mike Pierce
  */
 
-namespace edenspiekermann\craftjwt\assetbundles\CraftJwt;
+namespace edenspiekermann\craftjwtauth\assetbundles\CraftJwtAuth;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -17,10 +17,10 @@ use craft\web\assets\cp\CpAsset;
 
 /**
  * @author    Mike Pierce
- * @package   CraftJwt
+ * @package   CraftJwtAuth
  * @since     0.1.0
  */
-class CraftJwtAsset extends AssetBundle
+class CraftJwtAuthAsset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -30,18 +30,18 @@ class CraftJwtAsset extends AssetBundle
      */
     public function init()
     {
-        $this->sourcePath = "@edenspiekermann/craftjwt/assetbundles/craftjwt/dist";
+        $this->sourcePath = "@edenspiekermann/craftjwtauth/assetbundles/craftjwtauth/dist";
 
         $this->depends = [
             CpAsset::class,
         ];
 
         $this->js = [
-            'js/CraftJwt.js',
+            'js/CraftJwtAuth.js',
         ];
 
         $this->css = [
-            'css/CraftJwt.css',
+            'css/CraftJwtAuth.css',
         ];
 
         parent::init();

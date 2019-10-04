@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Craft JWT plugin for Craft CMS 3.x
+ * Craft JWT Auth plugin for Craft CMS 3.x
  *
  * Enable authentication to Craft through the use of JSON Web Tokens (JWT)
  *
@@ -10,12 +10,12 @@
  */
 
 /**
- * Craft JWT config.php
+ * Craft JWT Auth config.php
  *
- * This file exists only as a template for the Craft JWT settings.
+ * This file exists only as a template for the Craft JWT Auth settings.
  * It does nothing on its own.
  *
- * Don't edit this file, instead copy it to 'craft/config' as 'craft-jwt.php'
+ * Don't edit this file, instead copy it to 'craft/config' as 'craft-jwt-auth.php'
  * and make your changes there to override default settings.
  *
  * Once copied to 'craft/config', this file will be multi-environment aware as

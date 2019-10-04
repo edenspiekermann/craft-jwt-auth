@@ -1,21 +1,21 @@
 {# @var craft \craft\web\twig\variables\CraftVariable #}
 {#
 /**
- * Craft JWT plugin for Craft CMS 3.x
+ * Craft JWT Auth plugin for Craft CMS 3.x
  *
- * Craft JWT Settings.twig
+ * Craft JWT Auth Settings.twig
  *
  * @author    Mike Pierce
  * @copyright Copyright (c) 2019 Mike Pierce
  * @link      https://edenspiekermann.com
- * @package   CraftJwt
+ * @package   CraftJwtAuth
  * @since     0.1.0
  */
 #}
 
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("edenspiekermann\\craftjwt\\assetbundles\\craftjwt\\CraftJwtAsset") %}
+{% do view.registerAssetBundle("edenspiekermann\\craftjwtauth\\assetbundles\\craftjwtauth\\CraftJwtAuthAsset") %}
 
 {{ forms.autosuggestField({
     label: 'Secret Key',
