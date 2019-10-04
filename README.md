@@ -14,11 +14,11 @@ To install the plugin, follow these instructions.
 
 1.  Open your terminal and go to your Craft project:
 
-        cd /path/to/project
+    cd /path/to/project
 
 2.  Then tell Composer to load the plugin:
 
-        composer require edenspiekermann/craft-jwt
+    composer require edenspiekermann/craft-jwt
 
 3.  In the Control Panel, go to Settings → Plugins and click the “Install” button for Craft JWT.
 
@@ -61,9 +61,19 @@ If the token is verifiable but a matching user account does NOT exist, but the `
 
 The plugin does or will offer the following features:
 
-- [ ] Validate incoming requests with a JWT present in the Authentication headers.
-- [ ] Match a validated JWT to a user account in Craft CMS and login as that user.
-- [ ] Optionally create a new account if no existing account can be found.
+- [x] Validate incoming requests with a JWT present in the Authentication headers.
+- [x] Match a validated JWT to a user account in Craft CMS and login as that user.
+- [x] Optionally create a new account if no existing account can be found.
 - [ ] Generate a JWT from a user’s account data to enable sharing with other services that implement the same secret key.
+
+While the plugin is already useable, it is by no means finished. Use at your own risk. Some things to do before I'm comfortable taking it to version 1.0.0:
+
+- [ ] Better error and exception handling in general.
+- [ ] Better testing for the presence of an actual JWT, rather than some other type of token.
+- [ ] Checking for the presence of valid claims and handling if they aren't there.
+- [ ] Handle edge case of successful user creation but failed image creation.
+- [ ] Add test cases for all of that.
+- [ ] Have really smart people review the code for vulnerabilities.
+- [ ] Other stuff I haven't though of because I haven't done 👆 yet.
 
 Written and maintained by [Mike Pierce](https://michaelpierce.trade). Made possible by [Edenspiekermann](https://edenspiekermann.com).
