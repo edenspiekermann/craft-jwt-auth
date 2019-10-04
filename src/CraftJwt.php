@@ -65,7 +65,7 @@ class CraftJwt extends Plugin
         Craft::$app->on(Application::EVENT_INIT, function (Event $event) {
             // Get relevant settings
             $secretKey = self::$plugin->getSettings()->secretKey;
-            $autoCreateUser = self::$plugin->getSettings()->autoCreateUser || true;
+            $autoCreateUser = self::$plugin->getSettings()->autoCreateUser;
             $allowPublicRegistration = Craft::$app->getProjectConfig()->get('users.allowPublicRegistration') ?: false;
 
             // Look for an access token in the settings
