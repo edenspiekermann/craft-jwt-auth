@@ -29,7 +29,7 @@ use yii\base\Event;
  *
  * @author    Mike Pierce
  * @package   CraftJwt
- * @since     1.0.0
+ * @since     0.1.0
  *
  * @property  JWTService $jWT
  */
@@ -49,7 +49,7 @@ class CraftJwt extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.0.0';
+    public $schemaVersion = '0.1.0';
 
     // Public Methods
     // =========================================================================
