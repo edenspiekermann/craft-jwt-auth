@@ -76,6 +76,7 @@ class CraftJwtAuth extends Plugin
                 $accessToken = StringHelper::substr($accessToken, 7);
             }
 
+
             // If we find one, and it looks like a JWT...
             if ($accessToken && count(explode('.', $accessToken)) === 3) {
                 // Attempt to parse the token
@@ -137,19 +138,15 @@ class CraftJwtAuth extends Plugin
 
                             // Switch our unfound user to our newly created user
                             $user = $newUser;
-                        } else {
-                            return;
                         }
-                    } else {
-                        return;
                     }
 
                     // Attempt to login as the user we have found or created
-                    Craft::$app->user->loginByUserId($user->id);
+                    if ($user->id) {
+                        Craft::$app->user->loginByUserId($user->id);
+                    }
                 }
             }
-
-            return;
         });
 
         Craft::info(
