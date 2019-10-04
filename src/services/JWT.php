@@ -11,8 +11,6 @@
 
 namespace edenspiekermann\craftjwt\services;
 
-use edenspiekermann\craftjwt\CraftJwt;
-
 use Craft;
 use craft\base\Component;
 use craft\helpers\ArrayHelper;
