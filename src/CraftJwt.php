@@ -132,7 +132,7 @@ class CraftJwt extends Plugin
                                 $imageUpload = $guzzle->get($picture, ['save_to' => $tempFile]);
 
                                 // Save the tempfile to the user’s account as profile image
-                                $imageUploadSuccess = Craft::$app->getUsers()->saveUserPhoto($tempFile, $newUser, $fileName);
+                                Craft::$app->getUsers()->saveUserPhoto($tempFile, $newUser, $fileName);
                             }
 
                             // Switch our unfound user to our newly created user
