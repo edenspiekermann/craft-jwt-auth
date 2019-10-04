@@ -1,6 +1,6 @@
-# Craft JWT (JSON Web Tokens) plugin
+# Craft JWT plugin
 
-Enable authentication to Craft through the use of JSON Web Tokens (JWT)
+Enable authentication to Craft through the use of [JSON Web Tokens](https://jwt.io/) (JWT).
 
 ![Screenshot](resources/img/plugin-logo.png)
 
