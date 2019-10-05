@@ -24,8 +24,11 @@
  */
 
 return [
+    // TODO: Make these actually do something...
 
-    // This controls blah blah blah
-    "someAttribute" => true,
+    // Your secrete ket used for signing generated and verifying incoming JWTs
+    "secretKey" => '',
 
+    // Whether to automatically create a user for verified JWTs that don't match an account
+    "autoCreateUser" => true,
 ];

@@ -11,9 +11,6 @@
 
 namespace edenspiekermann\craftjwtauth\models;
 
-use edenspiekermann\craftjwtauth\CraftJwtAuth;
-
-use Craft;
 use craft\base\Model;
 
 /**

@@ -11,7 +11,6 @@
 
 namespace edenspiekermann\craftjwtauth\services;
 
-use Craft;
 use craft\base\Component;
 use craft\helpers\ArrayHelper;
 
