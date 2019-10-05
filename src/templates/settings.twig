@@ -15,8 +15,6 @@
 
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("edenspiekermann\\craftjwtauth\\assetbundles\\craftjwtauth\\CraftJwtAuthAsset") %}
-
 {{ forms.autosuggestField({
     label: 'Secret Key',
     instructions: 'Enter your secret key for JWT token signing and verifying',
