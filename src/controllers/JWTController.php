@@ -11,9 +11,6 @@
 
 namespace edenspiekermann\craftjwtauth\controllers;
 
-use edenspiekermann\craftjwtauth\CraftJwtAuth;
-
-use Craft;
 use craft\web\Controller;
 
 /**
@@ -32,7 +29,7 @@ class JWTController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['index', 'do-something'];
+    protected $allowAnonymous = [];
 
     // Public Methods
     // =========================================================================
@@ -40,20 +37,11 @@ class JWTController extends Controller
     /**
      * @return mixed
      */
-    public function actionIndex()
-    {
-        $result = 'Welcome to the JWTController actionIndex() method';
+    // TODO: Add an action to generate a JWT for a specific or the logged in user.
+    // public function actionGenerate()
+    // {
+    //     $result = 'Welcome to the JWTController actionGenerate() method';
 
-        return $result;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function actionDoSomething()
-    {
-        $result = 'Welcome to the JWTController actionDoSomething() method';
-
-        return $result;
-    }
+    //     return $result;
+    // }
 }
