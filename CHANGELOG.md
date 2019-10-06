@@ -2,27 +2,27 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.2.0 - TBD
+## 0.2.0 - 2019-10-06
 
 ### Added
+
+- `JWT::getJWTFromRequest()`: Attempts to find a JWT in request headers and return it.
+
+- `JWT::parseAndVerifyJWT()`: Attempts to parse a JWT and verify that it is signed using the shared secret.
+
+- `JWT::parseJWT()`: Attempts to parse a JWT string.
+
+- `JWT::verifyJWT()`: Attempts to verify a JWT token with the shared secret key.
+
+- `JWT::getUserByJWT()`: Looks for a Craft user that matches the claimed email in the verified token.
+
+- `JWT::createUserByJWT()`: Creates a Craft user based on the claims found in the verified token.
 
 - Roadmap to 1.0 in README
 
 ### Changed
 
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
+- Refactored authentication logic into service calls
 
 ## 0.1.2 - 2019-10-05
 
