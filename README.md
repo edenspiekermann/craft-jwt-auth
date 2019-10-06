@@ -59,6 +59,8 @@ If the token is verifiable but a matching user account does NOT exist, but the `
 
 ## Craft JWT Auth Roadmap
 
+### Features
+
 The plugin does or will offer the following features:
 
 - [x] Validate incoming requests with a JWT present in the Authentication headers.
@@ -66,13 +68,16 @@ The plugin does or will offer the following features:
 - [x] Optionally create a new account if no existing account can be found.
 - [ ] Generate a JWT from a user’s account data to enable sharing with other services that implement the same secret key.
 
+### Milestones
+
 While the plugin is already useable, it is by no means finished. Use at your own risk. Some things to do before I'm comfortable taking it to version 1.0.0:
 
-- [ ] Better error and exception handling in general.
-- [ ] Better testing for the presence of an actual JWT, rather than some other type of token.
-- [ ] Checking for the presence of valid claims and handling if they aren't there.
-- [ ] Handle edge case of successful user creation but failed image creation.
-- [ ] Add test cases for all of that.
+- [ ] `0.2.0` Refactor into more logical set of services and classes.
+- [ ] `0.3.0` Better testing for the presence of an actual JWT, rather than some other type of token.
+- [ ] `0.3.1` Checking for the presence of valid claims and handling if they aren't there.
+- [ ] `0.3.2` Handle edge case of successful user creation but failed image creation.
+- [ ] `0.3.3` Better exception handling in general.
+- [ ] `0.4.0` Add test cases for all of that.
 - [ ] Have really smart people review the code for vulnerabilities.
 - [ ] Other stuff I haven't though of because I haven't done 👆 yet.
 
