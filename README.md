@@ -32,7 +32,7 @@ This plugin enables requests to Craft to be securely authenticated in the presen
 
 ## Configuring Craft JWT Auth
 
-Once installed, naviate to the settings page of the plugin and enter required settings to activate the plugin:
+Once installed, navigate to the settings page of the plugin and enter required settings to activate the plugin:
 
 | Setting            | Description                                                                                 |
 | ------------------ | ------------------------------------------------------------------------------------------- |
