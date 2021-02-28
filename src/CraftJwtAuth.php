@@ -72,7 +72,7 @@ class CraftJwtAuth extends Plugin
                 }
 
                 // Attempt to login as the user we have found or created
-                if ($user->id) {
+                if ($user && $user->id) {
                     Craft::$app->user->loginByUserId($user->id);
                 }
             }
